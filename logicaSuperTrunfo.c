@@ -1,7 +1,6 @@
 #include <stdio.h>
     /*
     * Desafio Super Trunfo - Países
-    * O programa compara as cartas usando o atributo "População" e determina a vencedora.
     */
 
 int main() {
