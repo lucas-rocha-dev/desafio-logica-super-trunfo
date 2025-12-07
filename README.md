@@ -1,97 +1,86 @@
 # Super Trunfo - Cidades 🏙️
 
-Este é um jogo estilo Super Trunfo implementado em C que permite comparar cartas de cidades com base em diferentes atributos.
+Este projeto implementa uma versão do jogo **Super Trunfo** em linguagem C, onde duas cidades são cadastradas e comparadas usando **dois atributos escolhidos pelo jogador**.  
+O programa utiliza menus dinâmicos, cálculos automáticos e exibe o resultado final da comparação.
 
-## 📋 Descrição
+---
 
-O jogo permite cadastrar duas cartas de cidades e compará-las usando diferentes atributos através de um menu interativo. Cada carta possui informações como população, área, PIB e pontos turísticos, além de calcular automaticamente a densidade populacional e o PIB per capita.
+## 📋 Descrição Geral
+
+O programa permite:
+
+- Cadastrar duas cartas de cidades  
+- Calcular automaticamente:
+  - **Densidade Populacional** (População / Área)
+  - **PIB per Capita** (PIB / População)
+- Escolher **2 atributos diferentes** para comparação
+- Exibir o resultado de cada atributo individualmente
+- Calcular e mostrar o **resultado final**, somando os **valores** dos atributos escolhidos para cada cidade
+
+A comparação segue as regras do Super Trunfo, exceto no caso de densidade populacional, onde **vence o menor valor**.
+
+---
 
 ## 🎮 Como Jogar
 
-1. Execute o programa
-2. Cadastre as informações da primeira cidade:
-   - Estado
-   - Código
-   - Nome da cidade
-   - População
-   - Área
-   - PIB
-   - Quantidade de pontos turísticos
-3. Cadastre as informações da segunda cidade
-4. Escolha um atributo para comparação através do menu
-5. O programa mostrará qual cidade venceu na comparação
+1. Execute o programa.
+2. Preencha os dados da **primeira cidade**:
+   - Estado  
+   - Código  
+   - Nome da cidade  
+   - População  
+   - Área  
+   - PIB  
+   - Pontos turísticos  
+3. Preencha os dados da **segunda cidade** da mesma forma.  
+4. Escolha o **primeiro atributo** para comparar.  
+5. O menu do **segundo atributo será dinâmico**, removendo a opção já escolhida.  
+6. O programa exibirá:
+   - Resultado do primeiro atributo (quem venceu ou se houve empate)  
+   - Resultado do segundo atributo (quem venceu ou se houve empate)  
+   - **Soma dos valores** dos atributos para cada cidade  
+   - A cidade vencedora com base na soma (ou mensagem de empate final)  
+
+---
 
 ## 🎯 Atributos Disponíveis
 
-1. População
-   - Vence a cidade com maior população
-2. Área
-   - Vence a cidade com maior área
-3. PIB
-   - Vence a cidade com maior PIB
-4. Pontos Turísticos
-   - Vence a cidade com mais pontos turísticos
-5. Densidade Populacional
-   - Vence a cidade com menor densidade populacional
-6. PIB Per Capita
-   - Vence a cidade com maior PIB per capita
+Os mesmos atributos estão disponíveis para ambas as escolhas, exceto que o segundo menu remove o atributo já selecionado:
+
+1. **População**  
+   ✔ Maior vence  
+
+2. **Área**  
+   ✔ Maior vence  
+
+3. **PIB**  
+   ✔ Maior vence  
+
+4. **Pontos Turísticos**  
+   ✔ Maior vence  
+
+5. **Densidade Populacional**  
+   ✔ *Menor vence*  
+
+6. **PIB per Capita**  
+   ✔ Maior vence  
+
+---
+
+## 🔄 Como funciona a comparação de dois atributos (comportamento do código)
+
+Após escolher os dois atributos, **o programa soma os valores numéricos** desses atributos para cada cidade e compara as somas:
+
+- Para cada atributo escolhido, o valor daquele atributo é adicionado à soma respectiva da cidade (por exemplo, se o atributo for população, soma recebe o número de habitantes).
+- **A cidade com a maior soma total vence**.
+- Se as somas finais forem iguais, o programa exibe **"Empate!"**.
+
+---
 
 ## ⚙️ Compilação e Execução
 
-Para compilar e executar o programa, siga os passos abaixo:
+Para compilar e executar:
 
 ```bash
-# Compile o programa
 gcc logicaSuperTrunfo.c -o logicaSuperTrunfo
-
-# Execute o programa
 ./logicaSuperTrunfo
-```
-
-## 🔍 Exemplo de Uso
-
-```
-Digite o Estado da primeira carta:
-S
-Digite o código da primeira carta:
-SP1
-Digite a cidade da primeira carta:
-SaoPaulo
-Digite a população da primeira cidade:
-12000000
-Digite a area da primeira cidade:
-1521
-Digite o PIB da primeira cidade:
-700000000
-Digite a quantidade de pontos turisticos da primeira cidade:
-50
-
-[... cadastro da segunda cidade ...]
-
----> Selecione o atributo para comparar as cartas: <---
-1 - População
-2 - Área
-3 - PIB
-4 - Pontos Turísticos
-5 - Densidade Populacional
-6 - PIB Per Capita
-
-[Digite sua escolha]
-```
-
-## 🛠️ Requisitos do Sistema
-
-- Compilador GCC
-- Sistema operacional compatível com C (Windows, Linux, macOS)
-
-## 📝 Notas
-
-- O programa utiliza estruturas de controle switch para o menu interativo
-- Implementa verificações de empate para todos os atributos
-- A densidade populacional é calculada automaticamente (População/Área)
-- O PIB per capita é calculado automaticamente (PIB/População)
-- Inclui tratamento para opções inválidas no menu
-
-## 👨‍💻 Desenvolvido por
-
-Lucas Rocha
